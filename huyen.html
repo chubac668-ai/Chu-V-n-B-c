@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <title>khánh huyền</title>
+    <style>
+        body {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            background-color: #fff0f5;
+            font-family: Arial, sans-serif;
+        }
+
+        h1 {
+            color: pink;
+            font-size: 50px;
+            cursor: pointer;
+        }
+
+        .emoji {
+            position: absolute;
+            font-size: 40px;
+            animation: fly 1s ease-out forwards;
+        }
+
+        @keyframes fly {
+            0% { transform: translateY(0); opacity: 1; }
+            100% { transform: translateY(-100px); opacity: 0; }
+        }
+    </style>
+</head>
+<body>
+
+    <h1 onclick="showSmile(event)">Khánh Huyền ngố</h1>
+
+    <script>
+        function showSmile(event) {
+            const emoji = document.createElement("div");
+            emoji.className = "emoji";
+            emoji.innerText = "😎😊😎";
+            
+            // đặt emoji tại vị trí click
+            emoji.style.left = event.clientX + "px";
+            emoji.style.top = event.clientY + "px";
+
+            document.body.appendChild(emoji);
+
+            // Xóa emoji sau khi animation kết thúc
+            setTimeout(() => {
+                emoji.remove();
+            }, 1000);
+        }
+    </script>
+
+</body>
+</html>
+
+
